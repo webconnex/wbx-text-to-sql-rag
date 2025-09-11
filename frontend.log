@@ -1,0 +1,17 @@
+
+  You can now view your Streamlit app in your browser.
+
+  URL: http://0.0.0.0:8501
+
+  For better performance, install the Watchdog module:
+
+  $ xcode-select --install
+  $ pip install watchdog
+            
+Error ensuring buckets exist: An error occurred (BucketAlreadyExists) when calling the CreateBucket operation: The requested bucket name is not available. The bucket namespace is shared by all users of the system. Please select a different name and try again.
+Error searching documents: An error occurred (AccessDenied) when calling the ListObjectsV2 operation: User: arn:aws:sts::654293192108:assumed-role/okta-admin-user/justin.jimenez@webconnex.io is not authorized to perform: s3:ListBucket on resource: "arn:aws:s3:::webconnex-text-to-sql-training" because no resource-based policy allows the s3:ListBucket action
+2025-09-11 10:50:22.717 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.

@@ -1,0 +1,16 @@
+INFO:     Will watch for changes in these directories: ['/Users/justinjimenez/Documents/Webconnex/text to sql + Vector']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [15648] using StatReload
+Error ensuring buckets exist: An error occurred (BucketAlreadyExists) when calling the CreateBucket operation: The requested bucket name is not available. The bucket namespace is shared by all users of the system. Please select a different name and try again.
+Error ensuring buckets exist: An error occurred (BucketAlreadyExists) when calling the CreateBucket operation: The requested bucket name is not available. The bucket namespace is shared by all users of the system. Please select a different name and try again.
+2025-09-11 10:49:56,223 - backend.utils.logging - INFO - Logging configured successfully
+2025-09-11 10:49:56,223 - backend.utils.logging - INFO - Log level: info
+2025-09-11 10:49:56,223 - backend.utils.logging - INFO - Environment: development
+INFO:     Started server process [15699]
+INFO:     Waiting for application startup.
+2025-09-11 10:49:56,237 - backend.main - INFO - Starting Webconnex Text-to-SQL API
+2025-09-11 10:49:56,237 - backend.main - INFO - Environment: development
+2025-09-11 10:49:56,237 - backend.main - INFO - AWS Region: us-west-2
+2025-09-11 10:49:56,237 - backend.main - INFO - Redshift Cluster: wbx-data
+2025-09-11 10:49:56,237 - backend.main - INFO - All services initialized successfully
+INFO:     Application startup complete.

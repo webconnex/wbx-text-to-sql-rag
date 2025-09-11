@@ -1,0 +1,613 @@
+2025-08-13 20:34:06,112 - backend.utils.logging - INFO - Logging configured successfully
+2025-08-13 20:34:06,113 - backend.utils.logging - INFO - Log level: info
+2025-08-13 20:34:06,113 - backend.utils.logging - INFO - Environment: development
+2025-08-13 20:34:40,479 - backend.utils.logging - INFO - Logging configured successfully
+2025-08-13 20:34:40,479 - backend.utils.logging - INFO - Log level: info
+2025-08-13 20:34:40,479 - backend.utils.logging - INFO - Environment: development
+2025-08-13 20:34:40,541 - httpx - INFO - HTTP Request: GET http://testserver/api/health "HTTP/1.1 307 Temporary Redirect"
+2025-08-13 20:34:40,542 - httpx - INFO - HTTP Request: GET http://testserver/api/health/ "HTTP/1.1 200 OK"
+2025-08-13 20:34:40,543 - httpx - INFO - HTTP Request: GET http://testserver/api/info "HTTP/1.1 200 OK"
+2025-08-13 20:34:40,544 - httpx - INFO - HTTP Request: GET http://testserver/docs "HTTP/1.1 404 Not Found"
+2025-08-14 11:23:08,236 - backend.utils.logging - INFO - Logging configured successfully
+2025-08-14 11:23:08,236 - backend.utils.logging - INFO - Log level: info
+2025-08-14 11:23:08,236 - backend.utils.logging - INFO - Environment: development
+2025-08-14 11:23:08,246 - backend.main - INFO - Starting Webconnex Text-to-SQL API
+2025-08-14 11:23:08,246 - backend.main - INFO - Environment: development
+2025-08-14 11:23:08,246 - backend.main - INFO - AWS Region: us-west-2
+2025-08-14 11:23:08,246 - backend.main - INFO - Redshift Cluster: wbx-data
+2025-08-14 11:23:08,246 - backend.main - INFO - All services initialized successfully
+2025-08-14 22:34:26,832 - backend.main - INFO - Shutting down Webconnex Text-to-SQL API
+2025-08-27 07:55:04,716 - backend.utils.logging - INFO - Logging configured successfully
+2025-08-27 07:55:04,717 - backend.utils.logging - INFO - Log level: info
+2025-08-27 07:55:04,717 - backend.utils.logging - INFO - Environment: development
+2025-08-27 07:55:04,728 - backend.main - INFO - Starting Webconnex Text-to-SQL API
+2025-08-27 07:55:04,728 - backend.main - INFO - Environment: development
+2025-08-27 07:55:04,728 - backend.main - INFO - AWS Region: us-west-2
+2025-08-27 07:55:04,728 - backend.main - INFO - Redshift Cluster: wbx-data
+2025-08-27 07:55:04,728 - backend.main - INFO - All services initialized successfully
+2025-08-27 09:09:50,567 - backend.api.routes.query - INFO - Processing query for account 12345: How many customers?...
+2025-08-27 09:09:52,661 - backend.services.bedrock_vanna - ERROR - Error generating SQL: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:09:52,661 - backend.api.routes.query - ERROR - Error executing query: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/api/routes/query.py", line 95, in execute_query
+    sql_query = vanna_service.generate_sql(
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/services/bedrock_vanna.py", line 202, in generate_sql
+    response = self.bedrock_client.invoke_model(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:14:20,924 - backend.api.routes.query - INFO - Processing query for account 12345: How many customers do we have?...
+2025-08-27 09:14:21,947 - backend.services.bedrock_vanna - ERROR - Error generating SQL: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:14:21,947 - backend.api.routes.query - ERROR - Error executing query: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/api/routes/query.py", line 95, in execute_query
+    sql_query = vanna_service.generate_sql(
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/services/bedrock_vanna.py", line 202, in generate_sql
+    response = self.bedrock_client.invoke_model(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:14:21,958 - backend.api.routes.query - INFO - Processing query for account 12345: What's our total revenue this month?...
+2025-08-27 09:14:22,578 - backend.services.bedrock_vanna - ERROR - Error generating SQL: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:14:22,578 - backend.api.routes.query - ERROR - Error executing query: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/api/routes/query.py", line 95, in execute_query
+    sql_query = vanna_service.generate_sql(
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/services/bedrock_vanna.py", line 202, in generate_sql
+    response = self.bedrock_client.invoke_model(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:14:22,586 - backend.api.routes.query - INFO - Processing query for account 12345: Show me top 5 customers...
+2025-08-27 09:14:23,174 - backend.services.bedrock_vanna - ERROR - Error generating SQL: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:14:23,174 - backend.api.routes.query - ERROR - Error executing query: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/api/routes/query.py", line 95, in execute_query
+    sql_query = vanna_service.generate_sql(
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/services/bedrock_vanna.py", line 202, in generate_sql
+    response = self.bedrock_client.invoke_model(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:14:23,185 - backend.api.routes.query - INFO - Processing query for account 12345: Delete all customers...
+2025-08-27 09:14:23,796 - backend.services.bedrock_vanna - ERROR - Error generating SQL: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:14:23,797 - backend.api.routes.query - ERROR - Error executing query: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/api/routes/query.py", line 95, in execute_query
+    sql_query = vanna_service.generate_sql(
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/services/bedrock_vanna.py", line 202, in generate_sql
+    response = self.bedrock_client.invoke_model(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:17:16,349 - backend.main - INFO - Shutting down Webconnex Text-to-SQL API
+2025-08-27 09:17:23,083 - backend.utils.logging - INFO - Logging configured successfully
+2025-08-27 09:17:23,084 - backend.utils.logging - INFO - Log level: info
+2025-08-27 09:17:23,084 - backend.utils.logging - INFO - Environment: development
+2025-08-27 09:17:23,094 - backend.main - INFO - Starting Webconnex Text-to-SQL API
+2025-08-27 09:17:23,095 - backend.main - INFO - Environment: development
+2025-08-27 09:17:23,095 - backend.main - INFO - AWS Region: us-west-2
+2025-08-27 09:17:23,095 - backend.main - INFO - Redshift Cluster: wbx-data
+2025-08-27 09:17:23,095 - backend.main - INFO - All services initialized successfully
+2025-08-27 09:27:10,012 - backend.main - INFO - Shutting down Webconnex Text-to-SQL API
+2025-08-27 09:27:16,454 - backend.utils.logging - INFO - Logging configured successfully
+2025-08-27 09:27:16,454 - backend.utils.logging - INFO - Log level: info
+2025-08-27 09:27:16,454 - backend.utils.logging - INFO - Environment: development
+2025-08-27 09:27:16,463 - backend.main - INFO - Starting Webconnex Text-to-SQL API
+2025-08-27 09:27:16,463 - backend.main - INFO - Environment: development
+2025-08-27 09:27:16,463 - backend.main - INFO - AWS Region: us-west-2
+2025-08-27 09:27:16,463 - backend.main - INFO - Redshift Cluster: wbx-data
+2025-08-27 09:27:16,463 - backend.main - INFO - All services initialized successfully
+2025-08-27 09:28:34,980 - backend.main - INFO - Shutting down Webconnex Text-to-SQL API
+2025-08-27 09:28:38,925 - backend.utils.logging - INFO - Logging configured successfully
+2025-08-27 09:28:38,925 - backend.utils.logging - INFO - Log level: info
+2025-08-27 09:28:38,925 - backend.utils.logging - INFO - Environment: development
+2025-08-27 09:28:38,937 - backend.main - INFO - Starting Webconnex Text-to-SQL API
+2025-08-27 09:28:38,937 - backend.main - INFO - Environment: development
+2025-08-27 09:28:38,937 - backend.main - INFO - AWS Region: us-west-2
+2025-08-27 09:28:38,937 - backend.main - INFO - Redshift Cluster: wbx-data
+2025-08-27 09:28:38,937 - backend.main - INFO - All services initialized successfully
+2025-08-27 09:28:47,267 - backend.api.routes.query - INFO - Processing query for account 12345: How many active customers do we have?...
+2025-08-27 09:28:49,019 - backend.services.bedrock_vanna - ERROR - Error generating SQL: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:28:49,019 - backend.api.routes.query - ERROR - Error executing query: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/api/routes/query.py", line 95, in execute_query
+    sql_query = vanna_service.generate_sql(
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/services/bedrock_vanna.py", line 202, in generate_sql
+    response = self.bedrock_client.invoke_model(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:28:49,029 - backend.api.routes.query - INFO - Processing query for account 12345: What's our total revenue this month?...
+2025-08-27 09:28:49,636 - backend.services.bedrock_vanna - ERROR - Error generating SQL: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:28:49,636 - backend.api.routes.query - ERROR - Error executing query: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/api/routes/query.py", line 95, in execute_query
+    sql_query = vanna_service.generate_sql(
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/services/bedrock_vanna.py", line 202, in generate_sql
+    response = self.bedrock_client.invoke_model(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:28:49,644 - backend.api.routes.query - INFO - Processing query for account 12345: Show me top 10 customers by lifetime value...
+2025-08-27 09:28:50,258 - backend.services.bedrock_vanna - ERROR - Error generating SQL: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:28:50,259 - backend.api.routes.query - ERROR - Error executing query: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/api/routes/query.py", line 95, in execute_query
+    sql_query = vanna_service.generate_sql(
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/services/bedrock_vanna.py", line 202, in generate_sql
+    response = self.bedrock_client.invoke_model(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:28:50,265 - backend.api.routes.query - INFO - Processing query for account 12345: Delete all customers where id > 0...
+2025-08-27 09:28:50,873 - backend.services.bedrock_vanna - ERROR - Error generating SQL: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:28:50,873 - backend.api.routes.query - ERROR - Error executing query: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/api/routes/query.py", line 95, in execute_query
+    sql_query = vanna_service.generate_sql(
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/services/bedrock_vanna.py", line 202, in generate_sql
+    response = self.bedrock_client.invoke_model(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:28:50,877 - backend.api.routes.query - INFO - Processing query for account 12345: DROP TABLE invoice CASCADE...
+2025-08-27 09:28:51,495 - backend.services.bedrock_vanna - ERROR - Error generating SQL: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:28:51,495 - backend.api.routes.query - ERROR - Error executing query: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/api/routes/query.py", line 95, in execute_query
+    sql_query = vanna_service.generate_sql(
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/services/bedrock_vanna.py", line 202, in generate_sql
+    response = self.bedrock_client.invoke_model(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:28:51,500 - backend.api.routes.query - INFO - Processing query for account 12345: Count total customers...
+2025-08-27 09:28:52,098 - backend.services.bedrock_vanna - ERROR - Error generating SQL: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:28:52,099 - backend.api.routes.query - ERROR - Error executing query: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/api/routes/query.py", line 95, in execute_query
+    sql_query = vanna_service.generate_sql(
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/services/bedrock_vanna.py", line 202, in generate_sql
+    response = self.bedrock_client.invoke_model(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:28:52,107 - backend.api.routes.query - INFO - Processing query for account 12345: Count total customers...
+2025-08-27 09:28:52,702 - backend.services.bedrock_vanna - ERROR - Error generating SQL: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:28:52,702 - backend.api.routes.query - ERROR - Error executing query: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/api/routes/query.py", line 95, in execute_query
+    sql_query = vanna_service.generate_sql(
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/services/bedrock_vanna.py", line 202, in generate_sql
+    response = self.bedrock_client.invoke_model(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:28:52,706 - backend.api.routes.query - INFO - Processing query for account 12345: Count total customers...
+2025-08-27 09:28:53,322 - backend.services.bedrock_vanna - ERROR - Error generating SQL: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:28:53,322 - backend.api.routes.query - ERROR - Error executing query: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/api/routes/query.py", line 95, in execute_query
+    sql_query = vanna_service.generate_sql(
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/services/bedrock_vanna.py", line 202, in generate_sql
+    response = self.bedrock_client.invoke_model(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:28:53,326 - backend.api.routes.query - INFO - Processing query for account 12345: Count total customers...
+2025-08-27 09:28:53,932 - backend.services.bedrock_vanna - ERROR - Error generating SQL: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:28:53,987 - backend.api.routes.query - ERROR - Error executing query: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/api/routes/query.py", line 95, in execute_query
+    sql_query = vanna_service.generate_sql(
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/services/bedrock_vanna.py", line 202, in generate_sql
+    response = self.bedrock_client.invoke_model(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:28:54,008 - backend.api.routes.query - INFO - Processing query for account 12345: Count total customers...
+2025-08-27 09:28:54,596 - backend.services.bedrock_vanna - ERROR - Error generating SQL: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:28:54,596 - backend.api.routes.query - ERROR - Error executing query: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/api/routes/query.py", line 95, in execute_query
+    sql_query = vanna_service.generate_sql(
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/services/bedrock_vanna.py", line 202, in generate_sql
+    response = self.bedrock_client.invoke_model(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:52:08,515 - backend.main - INFO - Shutting down Webconnex Text-to-SQL API
+2025-08-27 09:52:30,039 - backend.utils.logging - INFO - Logging configured successfully
+2025-08-27 09:52:30,039 - backend.utils.logging - INFO - Log level: info
+2025-08-27 09:52:30,039 - backend.utils.logging - INFO - Environment: development
+2025-08-27 09:52:30,047 - backend.main - INFO - Starting Webconnex Text-to-SQL API
+2025-08-27 09:52:30,047 - backend.main - INFO - Environment: development
+2025-08-27 09:52:30,047 - backend.main - INFO - AWS Region: us-west-2
+2025-08-27 09:52:30,047 - backend.main - INFO - Redshift Cluster: wbx-data
+2025-08-27 09:52:30,047 - backend.main - INFO - All services initialized successfully
+2025-08-27 09:52:45,866 - backend.utils.logging - INFO - Logging configured successfully
+2025-08-27 09:52:45,867 - backend.utils.logging - INFO - Log level: info
+2025-08-27 09:52:45,867 - backend.utils.logging - INFO - Environment: development
+2025-08-27 09:52:45,880 - backend.main - INFO - Starting Webconnex Text-to-SQL API
+2025-08-27 09:52:45,880 - backend.main - INFO - Environment: development
+2025-08-27 09:52:45,880 - backend.main - INFO - AWS Region: us-west-2
+2025-08-27 09:52:45,880 - backend.main - INFO - Redshift Cluster: wbx-data
+2025-08-27 09:52:45,880 - backend.main - INFO - All services initialized successfully
+2025-08-27 09:55:07,505 - backend.api.routes.query - INFO - Processing query for account 12345: test...
+2025-08-27 09:55:09,809 - backend.services.bedrock_vanna - ERROR - Error generating SQL: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:55:09,810 - backend.api.routes.query - ERROR - Error executing query: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/api/routes/query.py", line 95, in execute_query
+    sql_query = vanna_service.generate_sql(
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/services/bedrock_vanna.py", line 202, in generate_sql
+    response = self.bedrock_client.invoke_model(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:55:09,816 - backend.main - ERROR - Unhandled exception: module 'jwt' has no attribute 'JWTError'
+Traceback (most recent call last):
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/jwt/api_jws.py", line 280, in _load
+    header = json.loads(header_data)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/json/__init__.py", line 341, in loads
+    s = s.decode(detect_encoding(s), 'surrogatepass')
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x8a in position 0: invalid start byte
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/auth/middleware.py", line 41, in get_current_user
+    payload = jwt.decode(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/jwt/api_jwt.py", line 222, in decode
+    decoded = self.decode_complete(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/jwt/api_jwt.py", line 156, in decode_complete
+    decoded = api_jws.decode_complete(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/jwt/api_jws.py", line 209, in decode_complete
+    payload, signing_input, header, signature = self._load(jwt)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/jwt/api_jws.py", line 282, in _load
+    raise DecodeError(f"Invalid header string: {e}") from e
+jwt.exceptions.DecodeError: Invalid header string: 'utf-8' codec can't decode byte 0x8a in position 0: invalid start byte
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/routing.py", line 78, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/routing.py", line 75, in app
+    response = await f(request)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/fastapi/routing.py", line 292, in app
+    solved_result = await solve_dependencies(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/fastapi/dependencies/utils.py", line 640, in solve_dependencies
+    solved = await run_in_threadpool(call, **solved_result.values)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/concurrency.py", line 38, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 2476, in run_sync_in_worker_thread
+    return await future
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/auth/middleware.py", line 59, in get_current_user
+    except jwt.JWTError:
+AttributeError: module 'jwt' has no attribute 'JWTError'. Did you mean: 'PyJWTError'?
+2025-08-27 09:55:51,168 - backend.api.routes.query - INFO - Processing query for account 12345: test...
+2025-08-27 09:55:52,488 - backend.services.bedrock_vanna - ERROR - Error generating SQL: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:55:52,488 - backend.api.routes.query - ERROR - Error executing query: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/api/routes/query.py", line 95, in execute_query
+    sql_query = vanna_service.generate_sql(
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/services/bedrock_vanna.py", line 202, in generate_sql
+    response = self.bedrock_client.invoke_model(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:55:52,494 - backend.main - ERROR - Unhandled exception: module 'jwt' has no attribute 'JWTError'
+Traceback (most recent call last):
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/jwt/api_jws.py", line 280, in _load
+    header = json.loads(header_data)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/json/__init__.py", line 341, in loads
+    s = s.decode(detect_encoding(s), 'surrogatepass')
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x8a in position 0: invalid start byte
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/auth/middleware.py", line 41, in get_current_user
+    payload = jwt.decode(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/jwt/api_jwt.py", line 222, in decode
+    decoded = self.decode_complete(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/jwt/api_jwt.py", line 156, in decode_complete
+    decoded = api_jws.decode_complete(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/jwt/api_jws.py", line 209, in decode_complete
+    payload, signing_input, header, signature = self._load(jwt)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/jwt/api_jws.py", line 282, in _load
+    raise DecodeError(f"Invalid header string: {e}") from e
+jwt.exceptions.DecodeError: Invalid header string: 'utf-8' codec can't decode byte 0x8a in position 0: invalid start byte
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/routing.py", line 78, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/routing.py", line 75, in app
+    response = await f(request)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/fastapi/routing.py", line 292, in app
+    solved_result = await solve_dependencies(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/fastapi/dependencies/utils.py", line 640, in solve_dependencies
+    solved = await run_in_threadpool(call, **solved_result.values)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/starlette/concurrency.py", line 38, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 2476, in run_sync_in_worker_thread
+    return await future
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/auth/middleware.py", line 59, in get_current_user
+    except jwt.JWTError:
+AttributeError: module 'jwt' has no attribute 'JWTError'. Did you mean: 'PyJWTError'?
+2025-08-27 09:57:20,426 - backend.main - INFO - Shutting down Webconnex Text-to-SQL API
+2025-08-27 09:57:25,097 - backend.utils.logging - INFO - Logging configured successfully
+2025-08-27 09:57:25,097 - backend.utils.logging - INFO - Log level: info
+2025-08-27 09:57:25,098 - backend.utils.logging - INFO - Environment: development
+2025-08-27 09:57:25,108 - backend.main - INFO - Starting Webconnex Text-to-SQL API
+2025-08-27 09:57:25,108 - backend.main - INFO - Environment: development
+2025-08-27 09:57:25,108 - backend.main - INFO - AWS Region: us-west-2
+2025-08-27 09:57:25,108 - backend.main - INFO - Redshift Cluster: wbx-data
+2025-08-27 09:57:25,108 - backend.main - INFO - All services initialized successfully
+2025-08-27 09:57:33,195 - backend.api.routes.query - INFO - Processing query for account 12345: How many active customers do we have?...
+2025-08-27 09:57:35,328 - backend.services.bedrock_vanna - ERROR - Error generating SQL: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:57:35,328 - backend.api.routes.query - ERROR - Error executing query: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/api/routes/query.py", line 95, in execute_query
+    sql_query = vanna_service.generate_sql(
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/services/bedrock_vanna.py", line 202, in generate_sql
+    response = self.bedrock_client.invoke_model(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:57:35,340 - backend.api.routes.query - INFO - Processing query for account 12345: What's our total revenue this month?...
+2025-08-27 09:57:36,026 - backend.services.bedrock_vanna - ERROR - Error generating SQL: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:57:36,026 - backend.api.routes.query - ERROR - Error executing query: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/api/routes/query.py", line 95, in execute_query
+    sql_query = vanna_service.generate_sql(
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/services/bedrock_vanna.py", line 202, in generate_sql
+    response = self.bedrock_client.invoke_model(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:57:36,031 - backend.api.routes.query - INFO - Processing query for account 12345: Show me top 10 customers by lifetime value...
+2025-08-27 09:57:36,678 - backend.services.bedrock_vanna - ERROR - Error generating SQL: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:57:36,678 - backend.api.routes.query - ERROR - Error executing query: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/api/routes/query.py", line 95, in execute_query
+    sql_query = vanna_service.generate_sql(
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/services/bedrock_vanna.py", line 202, in generate_sql
+    response = self.bedrock_client.invoke_model(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:57:36,685 - backend.api.routes.query - INFO - Processing query for account 12345: Delete all customers where id > 0...
+2025-08-27 09:57:37,425 - backend.services.bedrock_vanna - ERROR - Error generating SQL: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:57:37,425 - backend.api.routes.query - ERROR - Error executing query: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/api/routes/query.py", line 95, in execute_query
+    sql_query = vanna_service.generate_sql(
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/services/bedrock_vanna.py", line 202, in generate_sql
+    response = self.bedrock_client.invoke_model(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:57:37,432 - backend.api.routes.query - INFO - Processing query for account 12345: DROP TABLE invoice CASCADE...
+2025-08-27 09:57:38,105 - backend.services.bedrock_vanna - ERROR - Error generating SQL: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 09:57:38,105 - backend.api.routes.query - ERROR - Error executing query: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/api/routes/query.py", line 95, in execute_query
+    sql_query = vanna_service.generate_sql(
+  File "/Users/justinjimenez/Documents/Webconnex/text to sql + Vector/backend/services/bedrock_vanna.py", line 202, in generate_sql
+    response = self.bedrock_client.invoke_model(
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/justinjimenez/.pyenv/versions/3.10.12/lib/python3.10/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-08-27 10:00:35,859 - backend.main - INFO - Shutting down Webconnex Text-to-SQL API
+2025-08-27 10:00:40,408 - backend.utils.logging - INFO - Logging configured successfully
+2025-08-27 10:00:40,408 - backend.utils.logging - INFO - Log level: info
+2025-08-27 10:00:40,408 - backend.utils.logging - INFO - Environment: development
+2025-08-27 10:00:40,415 - backend.main - INFO - Starting Webconnex Text-to-SQL API
+2025-08-27 10:00:40,415 - backend.main - INFO - Environment: development
+2025-08-27 10:00:40,415 - backend.main - INFO - AWS Region: us-west-2
+2025-08-27 10:00:40,415 - backend.main - INFO - Redshift Cluster: wbx-data
+2025-08-27 10:00:40,415 - backend.main - INFO - All services initialized successfully
+2025-08-27 10:01:12,283 - backend.main - INFO - Shutting down Webconnex Text-to-SQL API
+2025-08-27 10:01:20,363 - backend.utils.logging - INFO - Logging configured successfully
+2025-08-27 10:01:20,364 - backend.utils.logging - INFO - Log level: info
+2025-08-27 10:01:20,364 - backend.utils.logging - INFO - Environment: development
+2025-08-27 10:01:20,372 - backend.main - INFO - Starting Webconnex Text-to-SQL API
+2025-08-27 10:01:20,372 - backend.main - INFO - Environment: development
+2025-08-27 10:01:20,372 - backend.main - INFO - AWS Region: us-west-2
+2025-08-27 10:01:20,372 - backend.main - INFO - Redshift Cluster: wbx-data
+2025-08-27 10:01:20,372 - backend.main - INFO - All services initialized successfully
+2025-08-27 10:02:38,619 - backend.main - INFO - Shutting down Webconnex Text-to-SQL API
+2025-08-27 10:02:42,829 - backend.utils.logging - INFO - Logging configured successfully
+2025-08-27 10:02:42,829 - backend.utils.logging - INFO - Log level: info
+2025-08-27 10:02:42,829 - backend.utils.logging - INFO - Environment: development
+2025-08-27 10:02:42,840 - backend.main - INFO - Starting Webconnex Text-to-SQL API
+2025-08-27 10:02:42,840 - backend.main - INFO - Environment: development
+2025-08-27 10:02:42,840 - backend.main - INFO - AWS Region: us-west-2
+2025-08-27 10:02:42,840 - backend.main - INFO - Redshift Cluster: wbx-data
+2025-08-27 10:02:42,840 - backend.main - INFO - All services initialized successfully
+2025-08-27 10:02:55,673 - backend.main - INFO - Shutting down Webconnex Text-to-SQL API
+2025-08-27 10:02:59,279 - backend.utils.logging - INFO - Logging configured successfully
+2025-08-27 10:02:59,280 - backend.utils.logging - INFO - Log level: info
+2025-08-27 10:02:59,280 - backend.utils.logging - INFO - Environment: development
+2025-08-27 10:02:59,290 - backend.main - INFO - Starting Webconnex Text-to-SQL API
+2025-08-27 10:02:59,290 - backend.main - INFO - Environment: development
+2025-08-27 10:02:59,290 - backend.main - INFO - AWS Region: us-west-2
+2025-08-27 10:02:59,291 - backend.main - INFO - Redshift Cluster: wbx-data
+2025-08-27 10:02:59,291 - backend.main - INFO - All services initialized successfully
+2025-08-27 10:21:16,936 - backend.utils.logging - INFO - Logging configured successfully
+2025-08-27 10:21:16,937 - backend.utils.logging - INFO - Log level: info
+2025-08-27 10:21:16,937 - backend.utils.logging - INFO - Environment: development
+2025-08-27 10:21:16,950 - backend.main - INFO - Starting Webconnex Text-to-SQL API
+2025-08-27 10:21:16,950 - backend.main - INFO - Environment: development
+2025-08-27 10:21:16,950 - backend.main - INFO - AWS Region: us-west-2
+2025-08-27 10:21:16,950 - backend.main - INFO - Redshift Cluster: wbx-data
+2025-08-27 10:21:16,950 - backend.main - INFO - All services initialized successfully
+2025-08-27 11:03:58,105 - backend.main - INFO - Shutting down Webconnex Text-to-SQL API
+2025-08-27 11:05:09,453 - backend.utils.logging - INFO - Logging configured successfully
+2025-08-27 11:05:09,453 - backend.utils.logging - INFO - Log level: info
+2025-08-27 11:05:09,454 - backend.utils.logging - INFO - Environment: development
+2025-08-27 11:05:09,464 - backend.main - INFO - Starting Webconnex Text-to-SQL API
+2025-08-27 11:05:09,464 - backend.main - INFO - Environment: development
+2025-08-27 11:05:09,464 - backend.main - INFO - AWS Region: us-west-2
+2025-08-27 11:05:09,465 - backend.main - INFO - Redshift Cluster: wbx-data
+2025-08-27 11:05:09,465 - backend.main - INFO - All services initialized successfully
+2025-08-27 14:10:32,519 - backend.utils.logging - INFO - Logging configured successfully
+2025-08-27 14:10:32,519 - backend.utils.logging - INFO - Log level: info
+2025-08-27 14:10:32,519 - backend.utils.logging - INFO - Environment: development
+2025-08-27 14:10:32,532 - backend.main - INFO - Starting Webconnex Text-to-SQL API
+2025-08-27 14:10:32,532 - backend.main - INFO - Environment: development
+2025-08-27 14:10:32,532 - backend.main - INFO - AWS Region: us-west-2
+2025-08-27 14:10:32,532 - backend.main - INFO - Redshift Cluster: wbx-data
+2025-08-27 14:10:32,532 - backend.main - INFO - All services initialized successfully
+2025-08-27 14:41:08,002 - backend.main - INFO - Shutting down Webconnex Text-to-SQL API
+2025-09-11 10:48:46,345 - backend.utils.logging - INFO - Logging configured successfully
+2025-09-11 10:48:46,345 - backend.utils.logging - INFO - Log level: info
+2025-09-11 10:48:46,345 - backend.utils.logging - INFO - Environment: development
+2025-09-11 10:49:56,223 - backend.utils.logging - INFO - Logging configured successfully
+2025-09-11 10:49:56,223 - backend.utils.logging - INFO - Log level: info
+2025-09-11 10:49:56,223 - backend.utils.logging - INFO - Environment: development
+2025-09-11 10:49:56,237 - backend.main - INFO - Starting Webconnex Text-to-SQL API
+2025-09-11 10:49:56,237 - backend.main - INFO - Environment: development
+2025-09-11 10:49:56,237 - backend.main - INFO - AWS Region: us-west-2
+2025-09-11 10:49:56,237 - backend.main - INFO - Redshift Cluster: wbx-data
+2025-09-11 10:49:56,237 - backend.main - INFO - All services initialized successfully
