@@ -4,62 +4,127 @@ services:
   # Backend API Service
   backend:
     build:
-      context: ./backend
-      dockerfile: Dockerfile
-    container_name: webconnex-text-sql-backend
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: webconnex-ai-backend
     environment:
+      # AWS Configuration - New Account (webconnex-ai-dev)
       - AWS_REGION=${AWS_REGION:-us-west-2}
+      - AWS_ACCOUNT_ID=${AWS_ACCOUNT_ID:-049101138630}
+      - AWS_PROFILE=${AWS_PROFILE:-049101138630-okta-admin-user}
+
+      # Bedrock Configuration - Amazon Nova Pro + Titan V2
+      - BEDROCK_MODEL_ID=${BEDROCK_MODEL_ID:-us.amazon.nova-pro-v1:0}
+      - BEDROCK_MODEL_ID_EMBEDDINGS=${BEDROCK_MODEL_ID_EMBEDDINGS:-amazon.titan-embed-text-v2:0}
+      - BEDROCK_REGION=${BEDROCK_REGION:-us-west-2}
+
+      # S3 Configuration - New Buckets
+      - S3_BUCKET_VECTORS=${S3_BUCKET_VECTORS:-webconnex-ai-dev-vectors}
+      - S3_BUCKET_TRAINING=${S3_BUCKET_TRAINING:-webconnex-ai-dev-training}
+      - S3_REGION=${S3_REGION:-us-west-2}
+
+      # Redshift Configuration
       - REDSHIFT_CLUSTER_ID=${REDSHIFT_CLUSTER_ID:-wbx-data}
       - REDSHIFT_DATABASE=${REDSHIFT_DATABASE:-wbx_data}
-      - BEDROCK_MODEL_ID=${BEDROCK_MODEL_ID:-anthropic.claude-3-sonnet-20240229-v1:0}
-      - S3_BUCKET_VECTORS=${S3_BUCKET_VECTORS:-webconnex-text-to-sql-vectors}
-      - REDIS_HOST=redis
-      - RUN_LOCALLY=${RUN_LOCALLY:-1}
+      - REDSHIFT_SCHEMA=${REDSHIFT_SCHEMA:-webconnex}
+      - REDSHIFT_SECRET_ARN=${REDSHIFT_SECRET_ARN:-wbx-data/db/replicator}
+
+      # Application Configuration
+      - ENVIRONMENT=${ENVIRONMENT:-development}
+      - DEBUG=${DEBUG:-false}
       - API_HOST=0.0.0.0
       - API_PORT=8000
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+
+      # Redis Configuration
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - ENABLE_CACHING=${ENABLE_CACHING:-true}
+
+      # Security
+      - ENABLE_RATE_LIMITING=${ENABLE_RATE_LIMITING:-true}
+      - ENABLE_QUERY_VALIDATION=${ENABLE_QUERY_VALIDATION:-true}
+      - ENABLE_SQL_INJECTION_PROTECTION=${ENABLE_SQL_INJECTION_PROTECTION:-true}
+
+      # Feature Flags
+      - ENABLE_RAG=${ENABLE_RAG:-true}
+      - RUN_LOCALLY=${RUN_LOCALLY:-true}
     ports:
       - "8000:8000"
     volumes:
-      - ./backend:/app
-      - ~/.aws:/root/.aws:ro  # AWS credentials (read-only)
+      - ./backend:/app/backend:ro  # Mount backend code as read-only
+      - ./logs:/app/logs  # Persistent logs
+      - ~/.aws:/home/appuser/.aws:ro  # AWS credentials (read-only)
     depends_on:
-      - redis
+      redis:
+        condition: service_healthy
     networks:
       - webconnex-network
-    command: uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
 
-  # Frontend Service
+  # Streamlit Frontend Service
   frontend:
     build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    container_name: webconnex-text-sql-frontend
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: webconnex-ai-frontend
     environment:
-      - REACT_APP_API_URL=http://localhost:8000
-      - REACT_APP_OKTA_DOMAIN=${OKTA_DOMAIN}
-      - REACT_APP_OKTA_CLIENT_ID=${OKTA_CLIENT_ID}
+      # Backend connection
+      - BACKEND_API_URL=http://backend:8000
+
+      # AWS Configuration (for frontend imports)
+      - AWS_REGION=${AWS_REGION:-us-west-2}
+      - AWS_ACCOUNT_ID=${AWS_ACCOUNT_ID:-049101138630}
+      - AWS_PROFILE=${AWS_PROFILE:-049101138630-okta-admin-user}
+
+      # Streamlit Configuration
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
+      - STREAMLIT_THEME_PRIMARY_COLOR=#0047AB
     ports:
-      - "3000:3000"
+      - "8501:8501"
     volumes:
-      - ./frontend:/app
-      - /app/node_modules  # Prevent node_modules from being overwritten
+      - ./frontend_streamlit_v2.py:/app/frontend_streamlit_v2.py:ro
+      - ./backend:/app/backend:ro
+      - ~/.aws:/home/appuser/.aws:ro  # AWS credentials (read-only)
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
     networks:
       - webconnex-network
-    command: npm start
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    restart: unless-stopped
 
   # Redis Cache Service
   redis:
     image: redis:7-alpine
-    container_name: webconnex-redis
+    container_name: webconnex-ai-redis
     ports:
       - "6379:6379"
     volumes:
       - redis-data:/data
     networks:
       - webconnex-network
-    command: redis-server --appendonly yes
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
 
   # PostgreSQL for local development (optional)
   postgres:
