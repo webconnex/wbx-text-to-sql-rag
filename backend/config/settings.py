@@ -27,10 +27,10 @@ class Settings(BaseSettings):
     DEBUG: bool = Field(default=False, description="Debug mode")
     TESTING: bool = Field(default=False, description="Testing mode")
     
-    # AWS Configuration
+    # AWS Configuration - New Account (webconnex-ai-dev)
     AWS_REGION: str = Field(default="us-west-2", description="AWS region")
-    AWS_ACCOUNT_ID: str = Field(default="your-aws-account-id", description="AWS account ID")
-    AWS_PROFILE: Optional[str] = Field(default="your-okta-profile-name", description="AWS profile")
+    AWS_ACCOUNT_ID: str = Field(default="049101138630", description="AWS account ID - webconnex-ai-dev")
+    AWS_PROFILE: Optional[str] = Field(default="049101138630-okta-admin-user", description="AWS profile")
     
     # Redshift Configuration
     REDSHIFT_CLUSTER_ID: str = Field(default="wbx-data", description="Redshift cluster ID")
@@ -45,20 +45,20 @@ class Settings(BaseSettings):
         description="Bedrock model ID for text generation"
     )
     BEDROCK_MODEL_ID_EMBEDDINGS: str = Field(
-        default="amazon.titan-embed-text-v1",
-        description="Bedrock model ID for embeddings"
+        default="amazon.titan-embed-text-v2:0",
+        description="Bedrock model ID for embeddings - Titan V2"
     )
     BEDROCK_REGION: str = Field(default="us-west-2", description="Bedrock region")
     BEDROCK_MAX_TOKENS: int = Field(default=1000, description="Max tokens for Bedrock")
     
-    # S3 Configuration
+    # S3 Configuration - New Account Buckets
     S3_BUCKET_VECTORS: str = Field(
-        default="webconnex-text-to-sql-vectors",
-        description="S3 bucket for vectors"
+        default="webconnex-ai-dev-vectors",
+        description="S3 bucket for vectors (new account)"
     )
     S3_BUCKET_TRAINING: str = Field(
-        default="webconnex-text-to-sql-training",
-        description="S3 bucket for training data"
+        default="webconnex-ai-dev-training",
+        description="S3 bucket for training data (new account)"
     )
     S3_REGION: str = Field(default="us-west-2", description="S3 region")
     
@@ -154,10 +154,10 @@ class Settings(BaseSettings):
         description="Allow LLM to see data"
     )
     
-    # gimme-aws-creds Configuration
+    # gimme-aws-creds Configuration - New Account
     GIMME_AWS_CREDS_PROFILE: str = Field(
-        default="your-okta-profile-name",
-        description="gimme-aws-creds profile"
+        default="049101138630-okta-admin-user",
+        description="gimme-aws-creds profile for new account"
     )
     GIMME_AWS_CREDS_DURATION: int = Field(
         default=3600,
