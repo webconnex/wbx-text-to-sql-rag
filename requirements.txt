@@ -65,7 +65,7 @@ click==8.1.7
 pyyaml==6.0.1
 
 # Security
-cryptography==41.0.7
+cryptography==46.0.5
 secrets==1.0.0
 
 # Data Validation
